@@ -1,0 +1,2 @@
+include jhlangtool/helpMessages/*.txt
+include jhlangtool/LICENSE.txt

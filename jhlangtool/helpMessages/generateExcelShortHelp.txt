@@ -1,0 +1,19 @@
+USAGE
+    jhlangtool generateExcel <path to base directory> [options]
+    OR
+    jhlangtool toExcel <path to base directory> [options]
+
+OPTIONS
+    -f, --filepath The path to the excelfile. Must end with the excel filename and .xlsx extension. 
+	               Default is ./output.xlsx.
+
+    -s, --separator The separator for the keys in the excel file. Default is "/".
+        
+    -i, --identifier The empty str ( "" <--- ) identifier in the excel files
+    
+    -v, --verbose Enables verbose output (outputs which files are currently being processed and 
+                  which directory is currently being checked for new files)
+
+    -q, --quiet Disables writing to stdout (disables outputting anything)
+
+    -h, --help Shows extended help for this utility

@@ -1,0 +1,67 @@
+DESCRIPTION
+    The generateExcel utility of jhlangtool is used to generate an excel file listing the values of all
+    json files for all of the language directories. It takes a base directory, and assumes direct 
+    subdirectories (only 1 level deep) are the languages. It will generate an excel spredsheet for every unique 
+    json file int the language directories. Note that it only takes into account the json files directly in the 
+    language directories (it does not recursivly check the subdirectories). Refer to the example directory tree 
+    and example generated spredsheet below.
+
+USAGE
+    jhlangtool generateExcel <path to base directory> [options]
+    OR
+    jhlangtool toExcel <path to base directory> [options]
+
+OPTIONS
+    -f, --filepath The path to the excelfile. Must end with the excel filename and .xlsx extension. 
+	               Default is ./output.xlsx.
+
+    -s, --separator The separator for the keys in the excel file. Default is "/".    
+
+    -i, --identifier The empty str ( "" <--- ) identifier
+
+    -v, --verbose Enables verbose output (outputs which files are currently being processed and 
+                  which directory is currently being checked for new files)
+	
+    -q, --quiet Disables writing to stdout
+
+    -h, --help Shows this message
+
+EXAMPLE DIRECTORY TREE
+
+  I18n
+  |
+  |-+ de
+  |   |- audits.json
+  |   |- dashboard.json
+  |   |- login.json
+  |
+  |-+ en
+  |   |- audits.json
+  |   |- dashboard.json
+  |   |- login.json
+  |
+  |-+ es
+  |   |- audits.json
+  |   |- dashboard.json
+  |   |- login.json
+  |   |- extra.json <--- The language directories don't necessary have to have the same json files.
+  |                      If a file is missing in other directories, the excel file wil treat is as missing keys.
+  |
+  |-+ fr
+  |   |- audits.json
+  |   |- dashboard.json
+  |   |- login.json
+
+
+ Generated excel file from example input directory (filled with mock data) with audits spredsheet open
+  +---------------------------------------------+
+  | audits.json | de    | en    | es    | fr    |
+  |---------------------------------------------|
+  |             |       |       |       |       |
+  |---------------------------------------------|
+  | example/key | Hallo | Hello | Hola  | Bonjour
+  |----------------------------------------------
+  | example/key2| Beispiel Example Ejemplo Exemple
+  |_____________________________________________|
+  | audits | dashboard | login | extra |  <--- List of spredsheets
+  +------------------------------------+
